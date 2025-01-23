@@ -1,125 +1,99 @@
-/* General Styles */
-body {
-    font-family: 'Arial', sans-serif; /* Default font */
-    background-color: #f4f6f9; /* Light background for the whole page */
-    margin: 0;
-    padding: 0;
-  }
-  
-  .reviews-container {
-    max-width: 600px;
+/* Основной контейнер */
+.reviews-container {
+    padding: 30px;
+    max-width: 800px;
     margin: 20px auto;
-    padding: 20px;
-    background-color: #ffffff; /* White background for the container */
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
-    animation: fadeIn 1s ease-in-out; /* Animation for fade-in */
+    background-color: #f5f7fa;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
   }
   
-  .reviews-container h2 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-    font-family: 'Roboto', sans-serif;
-    animation: slideIn 1s ease-out; /* Slide-in animation for the title */
-  }
-  
-  .reviews-container p {
-    text-align: center;
-    color: #666;
-  }
-  
+  /* Раздел для ввода отзыва */
   .review-section {
+    margin-bottom: 30px;
+  }
+  
+  textarea {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
     margin-bottom: 20px;
-    animation: fadeInUp 1s ease-in-out; /* Animation for review section appearance */
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    resize: vertical;
+    transition: border-color 0.3s ease-in-out;
   }
   
-  .review-section textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: none;
-    margin-bottom: 10px;
-    transition: border 0.3s ease;
+  textarea:focus {
+    border-color: #007bff; /* Синий цвет при фокусе */
+    outline: none;
   }
   
-  .review-section textarea:focus {
-    border-color: #072cb2;
-  }
-  
-  .review-section button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #072cb2;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .review-section button:hover {
-    background-color: #07169d;
-  }
-  
-  .reviews-list ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
-  }
-  
-  .reviews-list li {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    animation: fadeInUp 1s ease-in-out; /* Animation for each review */
-  }
-  
-  .reviews-list li:last-child {
-    border-bottom: none;
-  }
-  
-  .reviews-list li strong {
-    color: #333;
-  }
-  
-  input[type="text"] {
-    width: calc(100% - 22px);
-    padding: 10px;
-    margin: 60px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
+  /* Кнопка отправки отзыва */
   button {
-    background-color: #200174;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 12px 20px;
     font-size: 16px;
-    transition: background-color 0.3s ease;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    display: inline-block;
   }
   
   button:hover {
-    background-color: #320090;
+    background-color: #0056b3;
   }
   
-  /* Animations */
+  button:active {
+    background-color: #004085;
+  }
+  
+  /* Список отзывов */
+  .reviews-list ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .reviews-list li {
+    background-color: #ffffff;
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .reviews-list li:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Кнопка для удаления отзыва */
+  .delete-review-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #e60000;
+    font-size: 18px;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .delete-review-btn:hover {
+    color: #c70000;
+  }
+  
+  .delete-review-btn:active {
+    color: #990000;
+  }
+  
+  /* Плавное появление элементов */
   @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes fadeInUp {
     0% {
       opacity: 0;
       transform: translateY(20px);
@@ -130,71 +104,52 @@ body {
     }
   }
   
-  @keyframes slideIn {
-    0% {
-      transform: translateX(-50%);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
-  
-  /* Responsive Design */
+  /* Адаптивные стили */
   @media (max-width: 768px) {
     .reviews-container {
-      padding: 15px;
-      margin: 10px auto;
+      padding: 20px;
     }
   
-    .reviews-container h2 {
-      font-size: 24px;
-    }
-  
-    .review-section textarea {
+    textarea {
       font-size: 14px;
-    }
-  
-    .reviews-list li {
-      font-size: 14px;
-    }
-  
-    input[type="text"] {
-      margin: 20px 0;
-      padding: 8px;
-      font-size: 14px;
+      padding: 12px;
     }
   
     button {
-      padding: 12px 18px;
       font-size: 14px;
+      padding: 10px 15px;
+    }
+  
+    .reviews-list li {
+      padding: 15px;
+    }
+  
+    .delete-review-btn {
+      font-size: 16px;
     }
   }
   
   @media (max-width: 480px) {
     .reviews-container {
+      padding: 15px;
+    }
+  
+    textarea {
+      font-size: 14px;
       padding: 10px;
     }
   
-    .reviews-container h2 {
-      font-size: 20px;
-    }
-  
-    .review-section textarea {
-      font-size: 13px;
+    button {
+      font-size: 14px;
+      padding: 8px 12px;
     }
   
     .reviews-list li {
-      font-size: 13px;
+      padding: 12px;
     }
   
-    input[type="text"] {
-      padding: 8px;
-      font-size: 13px;
-    }
-  
-    button {
-      padding: 10px 15px;
-      font-size: 13px;
+    .delete-review-btn {
+      font-size: 14px;
     }
   }
   

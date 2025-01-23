@@ -1,0 +1,69 @@
+.App-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.news-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.news-icon {
+    font-size: 2.5em;
+    margin-right: 20px;
+    color: #2b3cf4;
+}
+
+.news-text {
+    flex: 1;
+}
+
+h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin: 0;
+}
+
+.news-description {
+    font-size: 1.1em;
+    margin-top: 10px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .news-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .news-icon {
+        margin-bottom: 10px;
+    }
+
+    .news-description {
+        font-size: 1em;
+    }
+}

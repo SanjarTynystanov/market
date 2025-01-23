@@ -18,7 +18,6 @@ const Nav = () => {
             <Link to="/history" className="nav-link"><FaHistory /> История</Link>
             <Link to="/video" className="nav-link"><FaVideo /> Видео</Link>
             <Link to="/jobs" className="nav-link"><FaBriefcase /> Вакансии</Link>
-            <Link to="/gall" className="nav-link"><FaImages /> Галерея</Link>
             <Link to="/social-feed" className="nav-link"><FaFacebook /> Социальные сети</Link>
         </nav>
     );

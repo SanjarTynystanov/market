@@ -1,0 +1,70 @@
+/* FAQ.css */
+.App-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9; /* Светлый фон */
+  }
+  
+  .faq-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333333; /* Темно-серый цвет заголовков */
+    margin-bottom: 20px;
+  }
+  
+  .faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .faq-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .faq-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .faq-icon {
+    font-size: 2rem;
+    color: #0056b3; /* Акцентный синий цвет */
+    margin-top: 5px;
+  }
+  
+  .faq-item h3 {
+    font-size: 1.5rem;
+    color: #0056b3; /* Синий акцент */
+    margin-bottom: 10px;
+  }
+  
+  .faq-item p {
+    font-size: 1rem;
+    color: #555555; /* Читаемый серый текст */
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 768px) {
+    .faq-item {
+      padding: 15px;
+    }
+  
+    .faq-item h3 {
+      font-size: 1.3rem;
+    }
+  
+    .faq-item p {
+      font-size: 0.9rem;
+    }
+  }
+  
