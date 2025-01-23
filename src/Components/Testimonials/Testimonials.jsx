@@ -3,7 +3,6 @@ import './Testimonials.css';
 
 const Testimonials = () => {
   const [username, setUsername] = useState('');
-  const [reviews, setReviews] = useState([]);
   const [newReview, setNewReview] = useState('');
 
   useEffect(() => {
