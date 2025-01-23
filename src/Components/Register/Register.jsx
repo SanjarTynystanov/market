@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Заменяем useHistory на useNavigate
 import './Register.css';
 import { FaUserAlt, FaEnvelope, FaLock, FaKey } from 'react-icons/fa';
-import { FaRegRegistered } from "react-icons/fa6";
+import { FaRegRegistered } from 'react-icons/fa6';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ const Register = () => {
     password: '',
     confirmPassword: '',
   });
+  const navigate = useNavigate(); // Заменяем useHistory на useNavigate
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,19 +20,34 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (formData.password !== formData.confirmPassword) {
       alert('Пароли не совпадают!');
       return;
     }
+
+    if (formData.username.length < 3) {
+      alert('Имя пользователя должно быть не менее 3 символов.');
+      return;
+    }
+
+    if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      alert('Введите корректный email.');
+      return;
+    }
+
+    // Сохраняем имя пользователя
     localStorage.setItem('username', formData.username);
-    console.log('Регистрация успешна', formData);
-    alert('Регистрация успешна!');
+    alert('Регистрация успешна! Добро пожаловать, ' + formData.username);
+
+    // Перенаправляем на страницу отзывов
+    navigate('/reviews'); // Используем navigate вместо history.push
   };
 
   return (
     <div className="register-container">
       <div className="register-header">
-        <div><FaRegRegistered /></div>
+        <FaRegRegistered className="register-icon" />
         <h2>Регистрация</h2>
       </div>
       <form onSubmit={handleSubmit} className="register-form">
