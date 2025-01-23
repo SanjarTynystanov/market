@@ -6,31 +6,28 @@ const Testimonials = () => {
   const [username, setUsername] = useState('');
   const [newReview, setNewReview] = useState('');
   const [reviews, setReviews] = useState([]);
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // Флаг авторизации
 
-  // Загрузка отзывов из localStorage при монтировании компонента
+  // Загрузка данных из localStorage
   useEffect(() => {
     const savedUsername = localStorage.getItem('username');
-    const savedReviews = JSON.parse(localStorage.getItem('reviews')) || [
-      { username: 'Анна', text: 'Очень хорошая компания! Рекомендую всем.' },
-      { username: 'Максим', text: 'Отличные сервисы, все понравилось!' },
-      { username: 'Ирина', text: 'Очень полезный и удобный продукт. Спасибо!' },
-      { username: 'Петр', text: 'Рекомендую, все отлично!' },
-      { username: 'Елена', text: 'Превосходный опыт! Буду использовать снова.' },
-      { username: 'Дмитрий', text: 'Обслуживание на высшем уровне, всем доволен.' }
-    ];
-    
+    const savedReviews = JSON.parse(localStorage.getItem('reviews')) || [];
+
     if (savedUsername) {
       setUsername(savedUsername);
+      setIsAuthenticated(true); // Если имя найдено, пользователь авторизован
     }
+
     setReviews(savedReviews);
   }, []);
 
-  // Сохранение имени пользователя
+  // Сохранение имени пользователя в localStorage
   const handleLogin = () => {
-    if (username) {
-      localStorage.setItem('username', username);
-      alert(`Добро пожаловать, ${username}!`);
-    }
+    const savedUsername = 'Пользователь'; // Предположим, что имя пользователя фиксированное
+    localStorage.setItem('username', savedUsername); // Сохраняем имя в localStorage
+    setUsername(savedUsername);
+    setIsAuthenticated(true); // Устанавливаем флаг авторизации
+    alert(`Добро пожаловать, ${savedUsername}!`);
   };
 
   // Добавление нового отзыва
@@ -40,7 +37,7 @@ const Testimonials = () => {
       const updatedReviews = [...reviews, newReviewObj];
       setReviews(updatedReviews);
       setNewReview('');
-      localStorage.setItem('reviews', JSON.stringify(updatedReviews));
+      localStorage.setItem('reviews', JSON.stringify(updatedReviews)); // Сохраняем отзывы в localStorage
     } else {
       alert('Пожалуйста, напишите отзыв!');
     }
@@ -50,20 +47,15 @@ const Testimonials = () => {
   const handleDeleteReview = (index) => {
     const updatedReviews = reviews.filter((_, i) => i !== index);
     setReviews(updatedReviews);
-    localStorage.setItem('reviews', JSON.stringify(updatedReviews));
+    localStorage.setItem('reviews', JSON.stringify(updatedReviews)); // Обновляем отзывы в localStorage
   };
 
-  if (!username) {
+  // Если пользователь не авторизован, показываем форму для входа
+  if (!isAuthenticated) {
     return (
       <div className="reviews-container">
         <h2>Доступ запрещен</h2>
-        <p>Пожалуйста, введите ваше имя для регистрации:</p>
-        <input
-          type="text"
-          placeholder="Введите ваше имя"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
+        <p>Пожалуйста, авторизуйтесь для оставления отзыва:</p>
         <button onClick={handleLogin}>Зарегистрироваться</button>
       </div>
     );
@@ -93,12 +85,14 @@ const Testimonials = () => {
             <li key={index} className="review-item">
               <strong>{review.username}:</strong> {review.text}
               {/* Кнопка для удаления отзыва */}
-              <button
-                className="delete-review-btn"
-                onClick={() => handleDeleteReview(index)}
-              >
-                <FaTrashAlt />
-              </button>
+              {review.username === username && (
+                <button
+                  className="delete-review-btn"
+                  onClick={() => handleDeleteReview(index)}
+                >
+                  <FaTrashAlt />
+                </button>
+              )}
             </li>
           ))}
         </ul>
@@ -108,3 +102,5 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
+
+
