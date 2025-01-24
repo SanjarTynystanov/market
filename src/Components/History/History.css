@@ -1,0 +1,142 @@
+.App-section {
+    padding: 20px;
+    background-color: #f0f0f0;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .history-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  .history-item {
+    margin-bottom: 30px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: slideIn 1s ease-in-out;
+  }
+  
+  .history-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .history-year {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  .history-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 15px;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  .interactive-section {
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .more-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .more-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .more-details {
+    margin-top: 20px;
+    background-color: #e9ecef;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .history-video {
+  margin-top: 40px;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+  
+  .history-video iframe {
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+    border-radius: 30px;
+  }
+  
+
+@media (max-width: 768px) {
+  .history-video iframe {
+    height: 250px; /* Adjust the height for smaller screens */
+  }
+}
+
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .history-title {
+      font-size: 1.8rem;
+    }
+  
+    .history-item {
+      padding: 10px;
+    }
+  
+    .icon-container {
+      flex-direction: column;
+    }
+  
+    .history-video-frame {
+      height: 300px;
+    }
+  }
+  

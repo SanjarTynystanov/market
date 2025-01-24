@@ -1,51 +1,71 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // Заменяем useHistory на useNavigate
-import { FaTrashAlt } from 'react-icons/fa';
+import { FaTrashAlt } from 'react-icons/fa'; // Иконка для удаления
 import './Testimonials.css';
 
 const Testimonials = () => {
+  const [username, setUsername] = useState('');
   const [newReview, setNewReview] = useState('');
   const [reviews, setReviews] = useState([]);
-  const navigate = useNavigate(); // Заменяем useHistory на useNavigate
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // Флаг авторизации
 
-  // Проверка авторизации пользователя
+  // Загрузка данных из localStorage
   useEffect(() => {
-    const username = localStorage.getItem('username');
-    if (!username) {
-      alert('Пожалуйста, авторизуйтесь!');
-      navigate('/register'); // Используем navigate вместо history.push
-    }
-  }, [navigate]);
-
-  // Загрузка отзывов из localStorage
-  useEffect(() => {
+    const savedUsername = localStorage.getItem('username');
     const savedReviews = JSON.parse(localStorage.getItem('reviews')) || [];
+
+    if (savedUsername) {
+      setUsername(savedUsername);
+      setIsAuthenticated(true); // Если имя найдено, пользователь авторизован
+    }
+
     setReviews(savedReviews);
   }, []);
 
-  const handleAddReview = () => {
-    const username = localStorage.getItem('username');
-    if (!newReview.trim()) {
-      alert('Пожалуйста, напишите отзыв!');
-      return;
-    }
-
-    const newReviewObj = { username, text: newReview.trim() };
-    const updatedReviews = [...reviews, newReviewObj];
-    setReviews(updatedReviews);
-    setNewReview('');
-    localStorage.setItem('reviews', JSON.stringify(updatedReviews));
+  // Сохранение имени пользователя в localStorage
+  const handleLogin = () => {
+    const savedUsername = 'Пользователь'; // Предположим, что имя пользователя фиксированное
+    localStorage.setItem('username', savedUsername); // Сохраняем имя в localStorage
+    setUsername(savedUsername);
+    setIsAuthenticated(true); // Устанавливаем флаг авторизации
+    alert(`Добро пожаловать, ${savedUsername}!`);
   };
 
+  // Добавление нового отзыва
+  const handleAddReview = () => {
+    if (newReview.trim()) {
+      const newReviewObj = { username, text: newReview.trim() };
+      const updatedReviews = [...reviews, newReviewObj];
+      setReviews(updatedReviews);
+      setNewReview('');
+      localStorage.setItem('reviews', JSON.stringify(updatedReviews)); // Сохраняем отзывы в localStorage
+    } else {
+      alert('Пожалуйста, напишите отзыв!');
+    }
+  };
+
+  // Удаление отзыва
   const handleDeleteReview = (index) => {
     const updatedReviews = reviews.filter((_, i) => i !== index);
     setReviews(updatedReviews);
-    localStorage.setItem('reviews', JSON.stringify(updatedReviews));
+    localStorage.setItem('reviews', JSON.stringify(updatedReviews)); // Обновляем отзывы в localStorage
   };
+
+  // Если пользователь не авторизован, показываем форму для входа
+  if (!isAuthenticated) {
+    return (
+      <div className="reviews-container">
+        <h2>Доступ запрещен</h2>
+        <p>Пожалуйста, авторизуйтесь для оставления отзыва:</p>
+        <button onClick={handleLogin}>Зарегистрироваться</button>
+      </div>
+    );
+  }
 
   return (
     <div className="reviews-container">
-      <h2>Отзывы</h2>
+      <h2>Отзывы пользователя: {username}</h2>
+
+      {/* Раздел для добавления нового отзыва */}
       <div className="review-section">
         <h3>Оставьте свой отзыв:</h3>
         <textarea
@@ -57,18 +77,22 @@ const Testimonials = () => {
         <button onClick={handleAddReview}>Отправить</button>
       </div>
 
+      {/* Раздел с отзывами пользователей */}
       <div className="reviews-list">
-        <h3>Отзывы других пользователей:</h3>
+        <h3>Отзывы:</h3>
         <ul>
           {reviews.map((review, index) => (
             <li key={index} className="review-item">
               <strong>{review.username}:</strong> {review.text}
-              <button
-                className="delete-review-btn"
-                onClick={() => handleDeleteReview(index)}
-              >
-                <FaTrashAlt />
-              </button>
+              {/* Кнопка для удаления отзыва */}
+              {review.username === username && (
+                <button
+                  className="delete-review-btn"
+                  onClick={() => handleDeleteReview(index)}
+                >
+                  <FaTrashAlt />
+                </button>
+              )}
             </li>
           ))}
         </ul>
@@ -78,3 +102,5 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
+
+

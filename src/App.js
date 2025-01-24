@@ -2,7 +2,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './Components/Header/Header';
-import Nav from './Components/Nav/Nav';
 import About from './Components/About/About';
 import Services from './Components/Services/Services';
 import Projects from './Components/Projects/Projects';
@@ -23,13 +22,13 @@ import Jobs from './Components/Jobs/Jobs';
 import SocialFeed from './Components/SocialFeed/SocialFeed';
 import Register from './Components/Register/Register';
 import './App.css';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Header />
-        <Nav />
         <main className="App-main">
           <Routes>
             <Route path="/about" element={<About />} />
@@ -53,6 +52,7 @@ function App() {
             <Route path="/" element={<Home />} /> 
           </Routes>
         </main>
+        <Footer/>
       </div>
     </Router>
   );
