@@ -1,81 +1,151 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Подключаем Link для навигации
-import "./Home.css"; // Подключаем стили
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUsers,
+  faBullseye,
+  faHandshake,
+  faChartLine,
+  faTrophy,
+} from "@fortawesome/free-solid-svg-icons";
+import "./Home.css";
 
 const Home = () => {
   return (
     <div className="home-container">
       <header className="home-header">
-        <h1 className="home-title">Рынок Дордой</h1>
+        <img
+          className="home-img"
+          src="https://yt3.googleusercontent.com/n0HkpqLYmnT6QpYhqOv9ZtpArFPMJ_XgI5jOqCYIi6LWBBAtPzPRblj1u5-oslnK6yJRQk289w4=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj"
+          alt="Логотип Ассоциации Дордой"
+        />
+        <h1 className="home-title">Ассоциация Дордой</h1>
         <p className="home-subtitle">
-          Один из крупнейших рынков Центральной Азии, играющий важную роль в
-          экономике региона.
+          Сообщество предпринимателей Центральной Азии, объединяющее знания,
+          ресурсы и опыт для вашего успеха.
         </p>
       </header>
 
+      {/* About Section */}
       <section className="home-section">
-        <h2>О рынке</h2>
+        <h2>
+          <FontAwesomeIcon icon={faUsers} /> О нас
+        </h2>
         <p>
-          Рынок Дордой расположен в Бишкеке, Кыргызстан. Это ключевой центр
-          торговли, известный своими масштабами и ассортиментом. Рынок
-          предоставляет рабочие места для тысяч людей и является важным звеном
-          в торговой инфраструктуре региона. Здесь торгуются товары от одежды и электроники до продуктов питания и строительных материалов.
+          Ассоциация Дордой объединяет более 5,000 участников, создавая мощную
+          платформу для сотрудничества и развития бизнеса. Мы предлагаем
+          ресурсы для роста, обучения и доступа к международным возможностям.
         </p>
       </section>
 
-      <section className="home-history">
-        <h2>История рынка Дордой</h2>
-        <p>
-          Рынок был основан в начале 90-х годов и стал символом предпринимательства в Центральной Азии. С тех пор он продолжает расти, привлекая международные инвестиции и поставщиков товаров из разных уголков мира.
-        </p>
-      </section>
-
-      <section className="home-news">
-        <h2>Новости</h2>
+      {/* Goals Section */}
+      <section className="home-goals">
+        <h2>
+          <FontAwesomeIcon icon={faBullseye} /> Наши цели
+        </h2>
         <ul>
-          <li>
-            <strong>Обновления инфраструктуры:</strong> На рынке построены новые торговые павильоны с современным оборудованием.
-          </li>
-          <li>
-            <strong>Международная торговля:</strong> Увеличение экспорта товаров в соседние страны, такие как Казахстан и Узбекистан.
-          </li>
-          <li>
-            <strong>События:</strong> Ежегодная выставка "Торговля и Инновации" пройдет в мае 2025 года, где будут представлены новейшие достижения в области торговли.
-          </li>
+          <li>Создание новых возможностей для малого и среднего бизнеса.</li>
+          <li>Поддержка экспорта товаров на международные рынки.</li>
+          <li>Развитие образовательных программ для предпринимателей.</li>
+          <li>Формирование сильного делового сообщества.</li>
         </ul>
       </section>
 
-      <section className="home-stats">
-        <h2>Ключевые факты</h2>
-        <div className="stats-grid">
-          <div className="stats-item">
-            <h3>1,000+</h3>
-            <p>Торговых точек</p>
+      {/* Membership Benefits Section */}
+      <section className="home-benefits">
+        <h2>
+          <FontAwesomeIcon icon={faHandshake} /> Преимущества членства
+        </h2>
+        <div className="benefits-grid">
+          <div className="benefit-item">
+            <img
+              src="https://th.bing.com/th/id/OIP.48t2y-wSRVDvRR9yYHBkiAHaE7?w=252&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7"
+              alt="Поддержка"
+              className="benefit-icon"
+            />
+            <h3>Поддержка бизнеса</h3>
+            <p>
+              Помощь в решении юридических, логистических и организационных
+              вопросов.
+            </p>
           </div>
-          <div className="stats-item">
-            <h3>50,000+</h3>
-            <p>Посетителей ежедневно</p>
+          <div className="benefit-item">
+            <img
+              src="https://ksu.edu.kz/images/page/ksu/op-kru.jpg"
+              alt="Обучение"
+              className="benefit-icon"
+            />
+            <h3>Образовательные программы</h3>
+            <p>Доступ к тренингам, семинарам и конференциям.</p>
           </div>
-          <div className="stats-item">
-            <h3>20+</h3>
-            <p>Стран-партнеров</p>
+          <div className="benefit-item">
+            <img
+              src="https://th.bing.com/th/id/OIP.JizEs2igy8BhRh4d0XFFZgHaD5?rs=1&pid=ImgDetMain"
+              alt="Нетворкинг"
+              className="benefit-icon"
+            />
+            <h3>Нетворкинг</h3>
+            <p>
+              Установление деловых связей с лидерами рынка и партнерами по всему
+              миру.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Новая секция для регистрации и участия в Ассоциации */}
-      <section className="home-association">
-        <h2>Станьте частью Ассоциации Дордой</h2>
+      {/* Activities Section */}
+      <section className="home-activities">
+        <h2>
+          <FontAwesomeIcon icon={faChartLine} /> Наша деятельность
+        </h2>
+        <ul>
+          <li>
+            Организация ежегодных выставок, таких как "Торговля и Инновации",
+            для демонстрации новейших технологий.
+          </li>
+          <li>
+            Проведение бизнес-форумов и круглых столов с международными
+            партнерами.
+          </li>
+          <li>
+            Сотрудничество с правительством для улучшения условий ведения
+            бизнеса.
+          </li>
+        </ul>
+      </section>
+
+      {/* Stats Section */}
+      <section className="home-stats">
+        <h2>
+          <FontAwesomeIcon icon={faTrophy} /> Наши достижения
+        </h2>
+        <div className="stats-grid">
+          <div className="stats-item">
+            <h3>5,000+</h3>
+            <p>Активных участников</p>
+          </div>
+          <div className="stats-item">
+            <h3>30+</h3>
+            <p>Международных партнеров</p>
+          </div>
+          <div className="stats-item">
+            <h3>100+</h3>
+            <p>Организованных мероприятий</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Join Us Section */}
+      <section className="home-join">
+        <h2>Присоединяйтесь к нам</h2>
         <p>
-          Присоединяйтесь к Ассоциации и получите доступ ко всем преимуществам для вашего бизнеса. Станьте частью
-          мощной сети предпринимателей, которые поддерживают друг друга, развивают новые возможности и помогают
-          продвигаться на международных рынках.
+          Станьте частью Ассоциации Дордой и откройте новые горизонты для
+          развития вашего бизнеса. Членство дает вам доступ к уникальным
+          возможностям, таким как международные связи, обучение и поддержка.
         </p>
-        <p>
-          Участвуйте в совместных проектах, получайте доступ к специальным предложениям, и расширяйте свои бизнес
-          горизонты, сотрудничая с ведущими торговыми игроками Центральной Азии и за ее пределами.
-        </p>
-        <Link to="/register" className="cta-button">Зарегистрироваться</Link>
+        <Link to="/register" className="cta-button">
+          Зарегистрироваться
+        </Link>
       </section>
     </div>
   );

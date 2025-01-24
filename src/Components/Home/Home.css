@@ -1,147 +1,73 @@
-/* Общие стили */
-.home-container {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 20px;
-  background-color: #f4f7fb;
-}
-
-.home-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.home-title {
-  font-size: 3rem;
-  color: #0033cc;
-  margin: 0;
-}
-
-.home-subtitle {
-  font-size: 1.2rem;
-  color: #555;
-  margin-top: 10px;
-  line-height: 1.6;
-}
-
-.home-section,
-.home-history,
-.home-news,
-.home-stats,
-.home-association {
-  margin-bottom: 40px;
-}
-
-h2 {
-  font-size: 2rem;
-  color: #0033cc;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-p {
-  font-size: 1rem;
-  color: #333;
-  line-height: 1.6;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-ul li {
-  font-size: 1rem;
-  padding: 10px 0;
-  border-bottom: 1px solid #ccc;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  text-align: center;
-}
-
-.stats-item {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.stats-item h3 {
-  font-size: 2rem;
-  margin: 0;
-  color: #0033cc;
-}
-
-.stats-item p {
-  font-size: 1.2rem;
-  color: #555;
-}
-
-/* Стили для кнопки регистрации */
-.home-association {
-  background-color: #ffffff;
-  color: white;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  text-align: center;
-}
-
-.cta-button {
-  padding: 12px 30px;
-  background-color: #0740bb;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-}
-
-.cta-button:hover {
-  background-color: #1d07ab;
-  transform: scale(1.05);
-}
-
-/* Адаптивность для мобильных устройств */
-@media (max-width: 768px) {
+body {
+    margin: 0;
+    font-family: "Roboto", Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+  }
+  
+  .home-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .home-header {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(120deg, #0056b3, #003d80);
+    color: white;
+  }
+  
+  .home-img {
+    width: 850px;
+    border-radius: 15%;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
   .home-title {
     font-size: 2.5rem;
+    margin: 10px 0;
   }
-
+  
   .home-subtitle {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
-
-  .stats-grid {
-    grid-template-columns: 1fr;
+  
+  .home-section,
+  .home-goals,
+  .home-benefits,
+  .home-activities,
+  .home-stats,
+  .home-join {
+    margin: 20px 0;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1.2s ease-in-out;
   }
-
-  .cta-button {
-    width: 100%;
+  
+  .benefits-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
   }
-}
-
-@media (max-width: 480px) {
-  .home-title {
-    font-size: 2rem;
+  
+  .benefit-item {
+    flex: 1 1 calc(33.333% - 20px);
+    text-align: center;
   }
-
-  .home-subtitle {
-    font-size: 0.9rem;
+  
+  .benefit-icon {
+    width: 240px;
+    margin-bottom: 10px;
   }
-
-  .stats-item h3 {
-    font-size: 1.5rem;
+  
+  /* Адаптивность */
+  @media (max-width: 768px) {
+    .benefit-item {
+      flex: 1 1 100%;
+    }
   }
-
-  .cta-button {
-    font-size: 1rem;
-  }
-}
+  

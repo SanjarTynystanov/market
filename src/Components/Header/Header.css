@@ -82,7 +82,9 @@
     color: #0033cc;
     transform: scale(1.05);
 }
-
+.nav-bar-2{
+    display: flex;
+}
 /* Иконка бургера */
 .burger-icon {
     display: none;

@@ -42,10 +42,9 @@ const Header = () => {
         <Link to="/contacts" className="nav-link"><FaEnvelope /> Контакты</Link>
         <Link to="/register" className="nav-link"><FaUser/>Зарегистрироваться</Link>
       </nav>
-      <nav>
+      <nav className="nav-bar-2">
       <Link to="/services" className="nav-link"><FaConciergeBell /> Услуги</Link>
                     <Link to="/projects" className="nav-link"><FaProjectDiagram /> Проекты</Link>
-                    <Link to="/gallery" className="nav-link"><FaPhotoVideo /> Галерея</Link>
                     <Link to="/faq" className="nav-link"><FaQuestionCircle /> FAQ</Link>
                     <Link to="/sports" className="nav-link"><FaFutbol /> Спорт</Link>
                     <Link to="/news" className="nav-link"><FaNewspaper /> Новости</Link>
@@ -54,8 +53,7 @@ const Header = () => {
                     <Link to="/events" className="nav-link"><FaCalendarAlt /> События</Link>
                     <Link to="/history" className="nav-link"><FaHistory /> История</Link>
                     <Link to="/video" className="nav-link"><FaVideo /> Видео</Link>
-                    <Link to="/jobs" className="nav-link"><FaBriefcase /> Вакансии</Link>
-                    <Link to="/social-feed" className="nav-link"><FaFacebook /> Социальные сети</Link>                    
+                    <Link to="/jobs" className="nav-link"><FaBriefcase /> Вакансии</Link>              
       </nav>
     </header>
   );
