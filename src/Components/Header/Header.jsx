@@ -41,8 +41,6 @@ const Header = () => {
         <Link to="/blog" className="nav-link"><FaBlog /> Блог</Link>
         <Link to="/contacts" className="nav-link"><FaEnvelope /> Контакты</Link>
         <Link to="/register" className="nav-link"><FaUser/>Зарегистрироваться</Link>
-      </nav>
-      <nav className="nav-bar-2">
       <Link to="/services" className="nav-link"><FaConciergeBell /> Услуги</Link>
                     <Link to="/projects" className="nav-link"><FaProjectDiagram /> Проекты</Link>
                     <Link to="/faq" className="nav-link"><FaQuestionCircle /> FAQ</Link>
