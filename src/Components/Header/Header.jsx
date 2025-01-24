@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaHome, FaInfoCircle, FaUsers, FaBlog, FaEnvelope, FaUser, FaBars } from "react-icons/fa";
+import { FaConciergeBell, FaProjectDiagram, FaPhotoVideo, FaQuestionCircle, FaFutbol, FaNewspaper, FaComments, FaHandshake, FaCalendarAlt, FaHistory, FaVideo , FaUsers, FaBlog, FaBriefcase, FaFacebook } from 'react-icons/fa';
 import "./Header.css";
 
 const Header = () => {
